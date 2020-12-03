@@ -1,0 +1,4 @@
+{
+    "urlHomePage": "/",
+    "urlLoginPage": "/index.php?controller=authentication&back=my-account"
+}
