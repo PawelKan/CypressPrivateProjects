@@ -27,8 +27,13 @@ describe("Login Page tests", () => {
         cy.log("**Click on Sign in button**")
         loginPage.getBtn_SignIn().click()
 
-        cy.log("**Verify Login was correct**")
+        cy.log("**Verify My account page after login**")
         myAccount.verifyMyAccountPageElements()
 
     })
+
+    it("", () => {
+
+    })
+    
 })
