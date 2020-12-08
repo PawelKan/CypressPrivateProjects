@@ -1,6 +1,6 @@
 /// <reference types="cypress" /> 
 
-const { homePage } = require("../support/PageObjects/HomePage/HomePageHeaderObject.spec");
+const { homePageHeader } = require("../support/PageObjects/HomePage/HomePageHeaderObject.spec");
 const { loginPage } = require("../support/PageObjects/LoginPage/LoginPageObject.spec");
 const { myAccount } = require("../support/PageObjects/MyAccount/MyAccountPageObject.spec");
 
@@ -32,7 +32,7 @@ describe("Login Page tests", () => {
     })
 
     it("Click Sign Out", () => {
-        homePage.getBtn_signOut().click()
+        homePageHeader.getBtn_signOut().click()
     })
 
     

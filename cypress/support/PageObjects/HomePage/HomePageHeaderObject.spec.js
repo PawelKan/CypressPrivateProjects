@@ -9,4 +9,4 @@ class HomePageHeader {
     getBtn_categoryDresses() { return cy.get('.sf-menu > :nth-child(2) > .sf-with-ul') }
     getBtn_categoryTshirts() { return cy.get('.sf-menu > :nth-child(3) > a') }
 }
-export const homePage = new HomePageHeader()
+export const homePageHeader = new HomePageHeader()
