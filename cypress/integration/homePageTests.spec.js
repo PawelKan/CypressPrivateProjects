@@ -1,6 +1,6 @@
 /// <reference types="cypress" /> 
 
-const { homePage } = require("../support/PageObjects/HomePage/HomePageObject.spec");
+const { homePage } = require("../support/PageObjects/HomePage/HomePageHeaderObject.spec");
 
 const url = require("../fixtures/urls.json")
 

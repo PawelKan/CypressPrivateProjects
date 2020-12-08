@@ -1,6 +1,6 @@
 /// <reference types = 'cypress' />
 
-class HomePage {
+class HomePageHeader {
 
     getBtn_contactUs() { return cy.get('#contact-link > a[title="Contact Us"]') }
     getBtn_signIn() { return cy.get('.login') }
@@ -8,6 +8,5 @@ class HomePage {
     getBtn_categoryWomen() { return cy.get('#block_top_menu > ul >li').first() }
     getBtn_categoryDresses() { return cy.get('.sf-menu > :nth-child(2) > .sf-with-ul') }
     getBtn_categoryTshirts() { return cy.get('.sf-menu > :nth-child(3) > a') }
-   
 }
-export const homePage = new HomePage()
+export const homePage = new HomePageHeader()

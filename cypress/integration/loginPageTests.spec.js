@@ -1,15 +1,14 @@
 /// <reference types="cypress" /> 
 
-const { homePage } = require("../support/PageObjects/HomePage/HomePageObject.spec");
-const { loginPage } = require("../support/PageObjects/HomePage/LoginPageObject.spec");
-const { myAccount } = require("../support/PageObjects/HomePage/MyAccountPageObject.spec");
+const { homePage } = require("../support/PageObjects/HomePage/HomePageHeaderObject.spec");
+const { loginPage } = require("../support/PageObjects/LoginPage/LoginPageObject.spec");
+const { myAccount } = require("../support/PageObjects/MyAccount/MyAccountPageObject.spec");
 
 const url = require("../fixtures/urls.json");
 
 describe("Login Page tests", () => {
 
     before("Login into page", () => {
-
         cy.log("**Visit [Login Page]**")
         cy.visit(url.urlLoginPage)
 
