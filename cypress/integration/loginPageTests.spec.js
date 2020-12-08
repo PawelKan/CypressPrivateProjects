@@ -1,23 +1,20 @@
 /// <reference types="cypress" /> 
 
 const { homePage } = require("../support/PageObjects/HomePage/HomePageObject.spec");
-
-const url = require("../fixtures/urls.json");
 const { loginPage } = require("../support/PageObjects/HomePage/LoginPageObject.spec");
 const { myAccount } = require("../support/PageObjects/HomePage/MyAccountPageObject.spec");
 
+const url = require("../fixtures/urls.json");
+
 describe("Login Page tests", () => {
-    it("Visit Login Page and verify elements", () =>{
+
+    before("Login into page", () => {
+
         cy.log("**Visit [Login Page]**")
-        cy.visit(url.urlLoginPage);
+        cy.visit(url.urlLoginPage)
 
         cy.log("**Verify [Login Page] fields, elements etc**")
         loginPage.verifyLoginPageElements();
-    })
-
-    it("Visit Login page and log into application", () =>{
-        cy.log("**Visit [Login Page]**")
-        cy.visit(url.urlLoginPage)
         //USER: fbn33265@bcaoo.com / Test123
 
         cy.log("**Type valid account credendials**")
@@ -26,14 +23,18 @@ describe("Login Page tests", () => {
 
         cy.log("**Click on Sign in button**")
         loginPage.getBtn_SignIn().click()
+        Cypress.Cookies.preserveOnce()
 
+    })
+    it("Verify My Account elements", () =>{
+      
         cy.log("**Verify My account page after login**")
         myAccount.verifyMyAccountPageElements()
-
     })
 
-    it("", () => {
-
+    it("Click Sign Out", () => {
+        homePage.getBtn_signOut().click()
     })
+
     
 })
