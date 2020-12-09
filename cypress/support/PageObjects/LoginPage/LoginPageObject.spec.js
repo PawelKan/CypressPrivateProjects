@@ -19,6 +19,8 @@ class LoginPageObject {
     getLink_ForgetYourPassword() { return cy.get('.lost_password > a') }
     getBtn_SignIn() {return cy.get('#SubmitLogin > span')}
 
+    getLab_LoginErrorMessage(){ return cy.get('ol > li');}
+
     verifyLoginPageElements(){
         this.getLab_AuthenticationBreadCrumb().should('be.visible').and('contain', 'Authentication')
         this.getLab_AuthenticationHeader().should('be.visible').and('contain', 'Authentication')
@@ -36,5 +38,7 @@ class LoginPageObject {
 
         return this;
     }
+
+
 }
 export const loginPage = new LoginPageObject()

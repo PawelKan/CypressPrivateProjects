@@ -6,7 +6,45 @@ const { myAccount } = require("../support/PageObjects/MyAccount/MyAccountPageObj
 
 const url = require("../fixtures/urls.json");
 
-describe("Login Page tests", () => {
+describe("Login Page tests (Negative tests)", () => {
+    it("Try to log in with invalid mail", () =>{
+        cy.log("**Visit [Login Page]**")
+        cy.visit(url.urlLoginPage)
+
+        cy.log("**Verify [Login Page] fields, elements etc**")
+        loginPage.verifyLoginPageElements();
+
+        cy.log("**Type invalid account credendials**")
+        loginPage.getTxt_LoginEmailAddress().type('invalid-mail.com')
+        loginPage.getTxt_LoginPassword().type("Test123")
+
+        cy.log("**Click on Sign in button**")
+        loginPage.getBtn_SignIn().click()
+
+        cy.log("**Verify error alert**")
+        loginPage.getLab_LoginErrorMessage().should('contain', 'Invalid email address.')
+    })
+
+    it("Try to log in with invalid password", () =>{
+        cy.log("**Visit [Login Page]**")
+        cy.visit(url.urlLoginPage)
+
+        cy.log("**Verify [Login Page] fields, elements etc**")
+        loginPage.verifyLoginPageElements();
+
+        cy.log("**Type invalid account credendials**")
+        loginPage.getTxt_LoginEmailAddress().type('fbn33265@bcaoo.com')
+        loginPage.getTxt_LoginPassword().type("ivalid-password")
+
+        cy.log("**Click on Sign in button**")
+        loginPage.getBtn_SignIn().click()
+
+        cy.log("**Verify error alert**")
+        loginPage.getLab_LoginErrorMessage().should('contain', 'Authentication failed.')
+    })
+})
+
+describe("Login Page tests (Positive)", () => {
 
     before("Login into page", () => {
         cy.log("**Visit [Login Page]**")
@@ -22,6 +60,7 @@ describe("Login Page tests", () => {
 
         cy.log("**Click on Sign in button**")
         loginPage.getBtn_SignIn().click()
+
         Cypress.Cookies.preserveOnce()
 
     })
