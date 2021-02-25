@@ -1,0 +1,80 @@
+{
+    "NIP": {
+        "valid": "",
+        "valid_inGUS": "",
+        "valid_withPauses": "",
+        "invalid_9_digits": "",
+        "invalid_11_digits": "",
+        "invalid_notInGUS": "",
+        "invalid_empty": "",
+        "invalid_otherSigns": ""
+    },
+
+    "REGON":{
+
+    },
+
+    "TEXT":{
+        "valid_100Signs": "",
+        "valid_300Signs": "",
+        "valid_500Signs": "",
+        "valid_polishSigns": "",
+        "valid_specialSigns": "",
+        "invalid_empty": ""
+
+    },
+
+    "NAME":{
+        "valid_shortest": "Lew",
+        "valid_normal": "Jakub",
+        "valid_longest": "Franciszek Salezy",
+        "invalid_empty":"",
+        "invalid_extremal":"AĄBCĆDEĘFGHIJKLŁM-NŃOÓPRSŚTUWYZŻŹ",
+        "invalid_digits":"0123456789",
+        "invalid_specialSigns":"`~!@#$%^&*()-=_+[]\\{}|;':\",./<>?",
+        "invalid_twoSpaces":"ab ba"
+    },
+
+    "SURNAME":{
+        "valid_shortest": "Ak",
+        "valid_normal": "Baź-Dętowska",
+        "valid_longest": "Achmistrowicz-Wachmistrowicz",
+        "invalid_empty":"",
+        "invalid_extremal":"AĄBCĆDEĘFGHIJKLŁM-NŃOÓPRSŚTUWYZŻŹ",
+        "invalid_digits":"0123456789",
+        "invalid_specialSigns":"`~!@#$%^&*()-=_+[]\\{}|;':\",./<>?",
+        "invalid_twoSpaces":"ab ba",
+        "invalid_connectors":"ab-ba-ba"
+    },
+
+    "MAIL":{
+        "valid_mail":"test@lizardmedia.pl",
+        "ivalid_noDomain":"abc@.pl",
+        "invalid_empty":"",
+        "invalid_noCountry":"test@test",
+        "invalid_noCountryWithDot":"test@test.",
+        "invalid_noName":"@test.pl",
+        "invalid_noSigns":"@.",
+        "invalid_long":"asdfasdfasdfasdfasdfasdfasdfasdfasdf@lizardmedia.pl",
+        "invalid_specialSigns":"`~!@#$%^&*()-=_+[]\\{}|;':\",./<>?",
+        "invalid_spaceInName":"aa aa@lizardmedia.pl"
+    },
+
+    "PHONE": {
+        "valid_withoutSpaces": "123123123",
+        "valid_withSpaces": "123 123 123",
+        "valid_withSpaces2": "12 12 12 123",
+        "valid_withCode": "48123123123",
+        "valid_withCodeAndPlusSign": "+48123123123",
+        "valid_withZeroesbeforeCode": "0048123123123",
+        "valid_withZeroesInBracketsbeforeCode": "(00)48123123123",
+        "valid_withPauses": "123-123-123",
+        "invalid_empty":"",
+        "invalid_singleDigit":"0",
+        "invalid_digits11":"12312312",
+        "invalid_digits13":"1231231233",
+        "invalid_minus":"-123123123",
+        "invalid_doublePauses":"123--123-123",
+        "invalid_specialSigns":"`~!@#$%^&*()-=_+[]\\{}|;':\",./<>?"
+    }
+}

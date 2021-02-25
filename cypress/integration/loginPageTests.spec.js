@@ -1,34 +1,36 @@
 /// <reference types="cypress" /> 
 
-const { homePage } = require("../support/PageObjects/HomePage/HomePageObject.spec");
-
-const url = require("../fixtures/urls.json");
+const urls = require("../fixtures/urls.json");
 const { loginPage } = require("../support/PageObjects/HomePage/LoginPageObject.spec");
 const { myAccount } = require("../support/PageObjects/HomePage/MyAccountPageObject.spec");
 
-describe("Login Page tests", () => {
-    it("Visit Login Page and verify elements", () =>{
-        cy.log("**Visit [Login Page]**")
-        cy.visit(url.urlLoginPage);
+describe("TEST SUITE: Login Page", () => {
+    it("TEST CASE: Visit Login Page and verify elements", () =>{
+        cy.log("**TEST STEP: Visit [Login Page]**")
+        cy.visit(urls.urlLoginPage);
 
-        cy.log("**Verify [Login Page] fields, elements etc**")
+        cy.log("**TEST STEP: Verify [Login Page] fields, elements etc**")
         loginPage.verifyLoginPageElements();
     })
 
-    it("Visit Login page and log into application", () =>{
-        cy.log("**Visit [Login Page]**")
-        cy.visit(url.urlLoginPage)
-        //USER: fbn33265@bcaoo.com / Test123
+    it("TEST CASE: Visit Login page and log into application. Logout after proper login", () =>{
+        cy.log("**TEST STEP: Visit [Login Page]**")
+        cy.visit(urls.urlLoginPage)
+        //USER: fbn33265@bcaoo.com / Test1234
 
-        cy.log("**Type valid account credendials**")
+        cy.log("**TEST STEP: Type valid account credendials**")
         loginPage.getTxt_LoginEmailAddress().type('fbn33265@bcaoo.com')
-        loginPage.getTxt_LoginPassword().type("Test123")
+        loginPage.getTxt_LoginPassword().type("Test1234")
 
-        cy.log("**Click on Sign in button**")
+        cy.log("**TEST STEP: Click on Sign in button**")
         loginPage.getBtn_SignIn().click()
 
-        cy.log("**Verify Login was correct**")
+        cy.log("**TEST STEP: Verify Login was correct**")
         myAccount.verifyMyAccountPageElements()
+
+        cy.log("**TEST STEP: Logout from Application**")
+        loginPage.getBtn_HeaderSignOut().click();
+        loginPage.getBtn_HeaderSignIn().should("contain", "Sign in")
 
     })
 })

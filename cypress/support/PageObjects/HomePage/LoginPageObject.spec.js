@@ -5,6 +5,8 @@ class LoginPageObject {
     // Header
     getLab_AuthenticationBreadCrumb() { return cy.get('.breadcrumb') }
     getLab_AuthenticationHeader() {return cy.get('.page-heading')}
+    getBtn_HeaderSignOut() { return cy.get('.logout'); }
+    getBtn_HeaderSignIn() { return cy.get('.login');}
 
     //Create an Account Form
     getLab_CreateAnAccountHeader() {return cy.get('#create-account_form > .page-subheading')}
@@ -17,7 +19,8 @@ class LoginPageObject {
     getTxt_LoginEmailAddress() { return cy.get('#email') }
     getTxt_LoginPassword() { return cy.get('#passwd') }
     getLink_ForgetYourPassword() { return cy.get('.lost_password > a') }
-    getBtn_SignIn() {return cy.get('#SubmitLogin > span')}
+    getBtn_SignIn() { return cy.get('#SubmitLogin > span') }
+    
 
     verifyLoginPageElements(){
         this.getLab_AuthenticationBreadCrumb().should('be.visible').and('contain', 'Authentication')
