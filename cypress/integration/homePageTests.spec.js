@@ -1,6 +1,6 @@
 /// <reference types="cypress" /> 
 
-const { homePage } = require("../support/PageObjects/HomePage/HomePageObject.spec");
+const {homePageHeader} = require("../support/PageObjects/HomePage/HomePageHeaderObject.spec");
 
 const urls = require("../fixtures/urls.json");
 
@@ -24,5 +24,4 @@ describe("TEST SCENARIO: HomePage tests", () => {
         homePage.getBtn_signIn().click()
         cy.url().should("contain", "controller=authentication&back=my-account")
     })
-   
 })

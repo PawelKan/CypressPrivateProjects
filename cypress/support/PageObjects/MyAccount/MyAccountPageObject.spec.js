@@ -31,5 +31,7 @@ class MyAccountPageObject {
 
         this.getBtn_ReturnToHome().should('be.visible').and('contain', 'Home')
     }
+
+  
 }
 export const myAccount = new MyAccountPageObject()
