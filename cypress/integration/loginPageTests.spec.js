@@ -1,35 +1,15 @@
 /// <reference types="cypress" /> 
 
-const { homePageHeader } = require("../support/PageObjects/HomePage/HomePageHeaderObject.spec");
-const { loginPage } = require("../support/PageObjects/LoginPage/LoginPageObject.spec");
-const { myAccount } = require("../support/PageObjects/MyAccount/MyAccountPageObject.spec");
+const urls = require("../fixtures/urls.json");
+const { loginPage } = require("../support/PageObjects/HomePage/LoginPageObject.spec");
+const { myAccount } = require("../support/PageObjects/HomePage/MyAccountPageObject.spec");
 
-const url = require("../fixtures/urls.json");
+describe("TEST SUITE: Login Page", () => {
+    it("TEST CASE: Visit Login Page and verify elements", () =>{
+        cy.log("**TEST STEP: Visit [Login Page]**")
+        cy.visit(urls.urlLoginPage);
 
-describe("Login Page tests (Negative tests)", () => {
-    it("Try to log in with invalid mail", () =>{
-        cy.log("**Visit [Login Page]**")
-        cy.visit(url.urlLoginPage)
-
-        cy.log("**Verify [Login Page] fields, elements etc**")
-        loginPage.verifyLoginPageElements();
-
-        cy.log("**Type invalid account credendials**")
-        loginPage.getTxt_LoginEmailAddress().type('invalid-mail.com')
-        loginPage.getTxt_LoginPassword().type("Test123")
-
-        cy.log("**Click on Sign in button**")
-        loginPage.getBtn_SignIn().click()
-
-        cy.log("**Verify error alert**")
-        loginPage.getLab_LoginErrorMessage().should('contain', 'Invalid email address.')
-    })
-
-    it("Try to log in with invalid password", () =>{
-        cy.log("**Visit [Login Page]**")
-        cy.visit(url.urlLoginPage)
-
-        cy.log("**Verify [Login Page] fields, elements etc**")
+        cy.log("**TEST STEP: Verify [Login Page] fields, elements etc**")
         loginPage.verifyLoginPageElements();
 
         cy.log("**Type invalid account credendials**")
@@ -46,33 +26,24 @@ describe("Login Page tests (Negative tests)", () => {
 
 describe("Login Page tests (Positive)", () => {
 
-    before("Login into page", () => {
-        cy.log("**Visit [Login Page]**")
-        cy.visit(url.urlLoginPage)
+    it("TEST CASE: Visit Login page and log into application. Logout after proper login", () =>{
+        cy.log("**TEST STEP: Visit [Login Page]**")
+        cy.visit(urls.urlLoginPage)
+        //USER: fbn33265@bcaoo.com / Test1234
 
-        cy.log("**Verify [Login Page] fields, elements etc**")
-        loginPage.verifyLoginPageElements();
-        //USER: fbn33265@bcaoo.com / Test123
-
-        cy.log("**Type valid account credendials**")
+        cy.log("**TEST STEP: Type valid account credendials**")
         loginPage.getTxt_LoginEmailAddress().type('fbn33265@bcaoo.com')
-        loginPage.getTxt_LoginPassword().type("Test123")
+        loginPage.getTxt_LoginPassword().type("Test1234")
 
-        cy.log("**Click on Sign in button**")
+        cy.log("**TEST STEP: Click on Sign in button**")
         loginPage.getBtn_SignIn().click()
 
-        Cypress.Cookies.preserveOnce()
-
-    })
-    it("Verify My Account elements", () =>{
-      
-        cy.log("**Verify My account page after login**")
+        cy.log("**TEST STEP: Verify Login was correct**")
         myAccount.verifyMyAccountPageElements()
-    })
 
-    it("Click Sign Out", () => {
+        cy.log("**TEST STEP: Logout from Application**")
+        loginPage.getBtn_HeaderSignOut().click();
+        loginPage.getBtn_HeaderSignIn().should("contain", "Sign in")
         homePageHeader.getBtn_signOut().click()
     })
-
-    
 })
