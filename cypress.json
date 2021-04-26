@@ -1,3 +1,7 @@
 {
-    "baseUrl":"http://automationpractice.com"
+    "baseUrl":"http://automationpractice.com",
+    "defaultCommandTimeout": 10000,
+    "pageLoadTimeout":80000,
+    "viewportWidth": 1920,
+    "viewportHeight":1080
 }
