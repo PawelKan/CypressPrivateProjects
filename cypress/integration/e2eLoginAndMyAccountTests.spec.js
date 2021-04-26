@@ -6,7 +6,7 @@ const { myAccount } = require("../support/PageObjects/MyAccount/MyAccountPageObj
 const { myAccountAddresses } = require("../support/PageObjects/MyAccount/MyAccountAdressessPageObject.spec");
 
 describe("TEST SCENARIO: End to end My Account tests", () => {
-    it.only("TEST CASE: Login, Go to address page, add new address, verify, delete added address", () =>{
+    it("TEST CASE: Login, Go to address page, add new address, verify, delete added address", () =>{
         let aliasNameText = "Cypress" + Date.now().toString();
         
         cy.log("Test step - Login as user into app")
