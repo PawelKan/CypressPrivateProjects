@@ -42,6 +42,15 @@ class LoginPageObject {
         return this;
     }
 
+    loginAsUser(username = "fbn33265@bcaoo.com", password = "Test1234"){
+        cy.log("**Type valid account credendials**")
+        this.getTxt_LoginEmailAddress().type(username)
+        this.getTxt_LoginPassword().type(password)
+
+        cy.log("**Click on Sign in button**")
+        this.getBtn_SignIn().click()
+    }
+
 
 }
 export const loginPage = new LoginPageObject()

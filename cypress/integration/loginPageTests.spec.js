@@ -3,7 +3,7 @@
 const urls = require("../fixtures/urls.json");
 const { loginPage } = require("../support/PageObjects/LoginPage/LoginPageObject.spec");
 const { myAccount } = require("../support/PageObjects/MyAccount/MyAccountPageObject.spec");
-const {homePageHeader} = require ("../support/PageObjects/HomePage/HomePageHeaderObject.spec")
+
 describe("TEST SUITE: Login Page", () => {
     it("TEST CASE: Visit Login Page and verify elements", () =>{
         cy.log("**TEST STEP: Visit [Login Page]**")
@@ -35,7 +35,7 @@ describe("TEST SUITE: Login Page", () => {
         cy.log("**TEST STEP: Click on Sign in button**")
         loginPage.getBtn_SignIn().click()
 
-        cy.log("**TEST STEP: Verify Login was correct**")
+        cy.log("**TEST STEP: Verify Login was correct and My Account page is visible**")
         myAccount.verifyMyAccountPageElements()
 
         cy.log("**TEST STEP: Logout from Application**")
