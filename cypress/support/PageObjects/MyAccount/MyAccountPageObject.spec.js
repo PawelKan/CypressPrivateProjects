@@ -10,7 +10,7 @@ class MyAccountPageObject {
     //Main form with buttons
     getBtn_OrderHistoryAndDetails() {return cy.get('.myaccount-link-list a[title="Orders"]');}
     getBtn_MyCreditSlips() {return cy.get('.myaccount-link-list a[title="Credit slips"]');}
-    getBtn_MyAddresses() {return cy.get('.myaccount-link-list a[title="Addresses"]');}
+    getBtn_MyAddresses() { return cy.get('.myaccount-link-list a[title="Addresses"]');}
     getBtn_MyPersonalInformation() {return cy.get('.myaccount-link-list a[title="Information"]');}
     getBtn_MyWishlists() {return cy.get('.myaccount-link-list a[title="My wishlists"]');}
 
@@ -31,7 +31,5 @@ class MyAccountPageObject {
 
         this.getBtn_ReturnToHome().should('be.visible').and('contain', 'Home')
     }
-
-  
 }
 export const myAccount = new MyAccountPageObject()
